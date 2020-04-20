@@ -11,6 +11,8 @@ there are world money project co-working spaces
                  และ url : new/ โดยจะมีแค่ admin ที่มีสิทธิ์เข้าถึง ระบบนี้ ทดลองได้โดยใช้ user1 กับ
                  admin ลอง log-in ดู จะพบว่า user1 ไม่สามารถเขาถึง url : new/ ได้
 4. user - copy มาจากเล่มเขียว (Custom Users)
+         user : admin          |     user1
+         pass : ilovecoffee    |     ilovecoffee
 
 # ก่อน runserver ให้ migrate ก่อน (python manage.py migrate)
               
