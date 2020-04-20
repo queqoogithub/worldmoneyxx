@@ -16,5 +16,5 @@ there are world money project co-working spaces
          pass : ilovecoffee, ilovecoffee    
          
          
-# ก่อน runserver ให้ migrate ก่อน (python manage.py migrate)
+### ก่อน runserver ให้ migrate ก่อน (python manage.py migrate)
               
