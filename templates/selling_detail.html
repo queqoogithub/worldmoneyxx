@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<h3 class="font-weight-bold">{{ selling.title }}</h3>
+<p>{{ selling.date }}</p><br>
+
+<div class="row">
+    
+    {% for img in selling.asset_images.all %} 
+    <div class="col s6 m6 l3 " align="center">
+        
+        
+        <a href="/media/{{ img.image }}" target="_blank">
+        <img class="responsive-img " src="/media/{{ img.image }}" width="320" height="230" alt="image not found" vspace="2px"/>
+        </a>
+              
+        
+    </div>         
+    {% endfor %}
+</div>
+<br>
+<h4>About The Asset</h4>
+<p>{{ selling.body }}</p>
+<br>
+<a href="{% url 'selling_auction_create' selling.pk %}" class="btn btn-danger" style="font-size:22px"><i class="fa fa-legal" style="font-size:22px"></i> &nbsp;Asset Auction</a>
+<br><br><br>
+<h4>Auction List</h4><br>
+<div class="row"></div>
+    {% for auction in selling.asset_auctions.all %}
+    <ul class="list-group">
+        <li class="list-group-item">Bidding Price : <b>{{ auction.auction_price }}</b> THB &nbsp; | &nbsp; Bidder : <b>{{ auction.author }}</b> </li>
+    </ul> 
+    {% endfor %}
+</div>
+
+<br><br><br><br>
+{% endblock %}

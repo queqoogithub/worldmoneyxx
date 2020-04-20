@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% load static %} <!-- วางไว้หลัง extends เสมอ หากต้องการ load file จาก static folder-->
+
+{% block title %}Home{% endblock title %} 
+
+{% block content %} 
+
+    <div class="jumbotron border border-secondary" style="background-color:white">
+        <h1 class="display-4">Wellcome to World Money</h1>
+        <p class="lead">Peer to Peer Asset Matching Platform</p>
+        <p class="lead">
+        <a class="btn btn-danger btn-lg" href="{% url 'signup' %}" role="button">Sign-up Now</a>
+        <a class="btn btn-info btn-lg" href="{% url 'selling_list' %}" role="button">View All Articles</a>
+        </p>
+    </div>
+    <div class="jumbotron border border-secondary " style="background-color:white" align="center">
+        <h1 class="display-4">How We Works</h1>
+        <p class="lead">Peer to Peer Asset Matching Platform</p>
+        
+        <img class="responsive-img " src="{% static 'icon/homepage3.png' %}" height="200px"/>
+        
+    </div>
+
+{% endblock content %} 
