@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD ESTATE</title>
+
+    <!-- css style -->
+    <link rel="stylesheet" href="css/slyleTopBarUser.css">
+    <link rel="stylesheet" href="css/slyleContant.css">
+
+    <!--  -->
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <!-- Top-navbar logo and Username, Password, button Login, Sigh up, and Reset password -->
+    <div class="container">
+
+        <div class="container-grid">
+
+            <div class="logo">
+
+                <img src="img/logo.png" id="image_logo" width="40px" height="40px">
+
+                <a href="#" id="logo_item">
+
+                    <span style="color: #f1c232ff;">
+
+                        WORLD
+
+                    </span>
+
+                    <span>
+
+                        ESTATE
+
+                    </span>
+
+                </a>
+
+
+            </div>
+
+            <div class="user-topBar">
+
+                <form action="#" name="">
+
+                    <ul>
+
+                        <div class="UserAndPass">
+                            <li>
+                                <input type="text" name="" placeholder="Username">
+                            </li>
+                            <input type="password" name="" placeholder="Password">
+                            </li>
+                        </div>
+
+                        <!-- Log in and Sigh up -->
+                        {% else %}
+                        <div class="A-TopBar">
+
+                            <li>
+                                <form action="#">
+                                    <a onclick="val_lgin();canLogin=false;" id="A-TopBar1">
+
+                                        LOG IN
+
+                                    </a>
+                                </form>
+                            </li>
+
+                            <li>
+                                <!-- <form action=""> -->
+                                <a onclick="window.open('#');" id="A-TopBar2">
+
+                                    Reset password
+
+                                </a>
+                                <!-- </form> -->
+                            </li>
+
+                            <li>
+                                <!-- <form action="#"> -->
+                                <a id="A-TopBar3">
+
+                                    Sigh up
+
+                                </a>
+                                <!-- </form> -->
+                            </li>
+
+                        </div>
+                        {% endif %}
+
+                    </ul>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-grid">
+
+        <a class="navbar_Username" href="#" id="userMenu" aria-haspopup="true"
+            aria-expanded="false">
+
+            {{ user.username }}
+
+        </a>
+
+        <div class="A-TopBar">
+
+            <a class="A-TopBar1" href="{% url 'article_new' %}" style="font-size: 20px;">
+                + New
+            </a>
+            <a class="A-TopBar1" href="{% url 'password_change'%}" style="font-size: 20px;">
+                Change password
+            </a>
+            <div class="dropdown-divider">
+
+            </div>
+
+            <a class="A-TopBar1" href="{% url 'logout' %}" style="font-size: 20px;">
+                Log Out
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
