@@ -1,25 +1,156 @@
-{% extends 'base.html' %} 
+{% load static %}
+<div class="container-grid">
 
-{% load crispy_forms_tags %} 
+    <div class="logo">
 
-{% block title %}Log In{% endblock title %} 
+        <img src="{% static 'img/logo.png' %} " id="image_logo" width="40px" height="40px">
 
-{% block content %} 
+        <a href="#" id="logo_item">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
-                <h2>Log In</h2> 
-                <form method="post"> {% csrf_token %} 
-                    {{ form|crispy }}
-                    <button class="btn btn-dark ml-0" type="submit">Log In</button>
-                    <form class="form-inline ml-auto">
-                        <a href="{% url 'password_reset'%}" class="btn btn-danger">Reset Password</a>
-                    </form>
-                </form> 
-            </div>
-        </div>
+            <span style="color: #f1c232ff;">
+
+                WORLD
+
+            </span>
+
+            <span>
+
+                ESTATE
+
+            </span>
+
+        </a>
+
+
     </div>
 
-{% endblock content %} 
+    <div class="user-topBar">
 
+
+
+        <ul>
+            <div class="A-TopBar">
+
+                {% if user.is_authenticated %}
+                <p>{{ user.username }}</p>
+                <li>
+                    <button id="A-TopBar2">
+
+                       <a href="{% url 'password_change'%}">Change password</a> 
+
+                    </button>
+                </li> 
+                <li>
+                    <button id="A-TopBar3">
+                       <a href="{% url 'logout' %}">Logout</a> 
+                    </button>
+                </li>
+                
+
+                {% else %}
+
+                <form action="/users/login/" method="post">
+                    {% csrf_token %}
+                    <div class="UserAndPass">
+                        <li>
+                            <input type="text" name="username" placeholder="Username">
+                        </li>
+                        <input type="password" name="password" placeholder="Password">
+                        </li>
+                    </div>
+                    <li>
+                        <input type="submit" id="A-TopBar1" value=" LOG IN">
+                </form>
+                </li>
+               <li>
+                    <button id="A-TopBar2">
+                       <a href="{% url 'password_reset'%}">Reset password</a> 
+                    </button>
+                </li>
+
+                <li>
+                    <form action="{% url 'signup' %}">
+                        <button id="A-TopBar3">
+
+                            Sigh up
+
+                        </button>
+                    </form>
+                </li>
+
+            </div>
+            {% endif %}
+
+        </ul>
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="MenuAndContant">
+    <div class="MenuAndContant-grid">
+        <div class="MenuLeftNavbar" style="scrollbar-width: 20px;">
+
+            <div id="Menu-Item">
+
+                <div>
+                    <a href="{% url 'home' %}" id="Menu_Left-item1">
+                        <span>
+
+                            HOME
+
+                        </span>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="#" id="Menu_Left-item">
+                        <span>
+
+                            INVESTER
+
+                        </span>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="#" id="Menu_Left-item">
+                        <span>
+
+                            SELLER
+
+                        </span>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="#" id="Menu_Left-item">
+                        <span>
+
+                            ABOUT
+
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="Menu-Item-CONTACT">
+
+                <div>
+                    <a href="#" id="Menu-Item-CONTACT1">
+                        <span>
+
+                            CONTACT
+
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>

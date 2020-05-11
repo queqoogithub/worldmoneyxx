@@ -37,7 +37,6 @@ INSTALLED_APPS = [
 
     # Local
     'users.apps.UsersConfig',
-    # 'member.apps.MemberConfig', 
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig', 
     'selling.apps.SellingConfig', # new
