@@ -9,16 +9,16 @@ from .forms import SellingForm, SellingImageFormset, SellingAuctionForm # new
 from .models import Selling, SellingImage, SellingAuction # new
 
 # Create your views here.
-class SellingListView(LoginRequiredMixin, ListView): 
+class SellingListView(ListView): 
     model = Selling
     template_name = 'selling_list.html' 
-    login_url = 'login' 
+    login_url = 'login'
     ordering = ['-date']
 
-class SellingDetailView(LoginRequiredMixin, DetailView): 
+class SellingDetailView(DetailView): 
     model = Selling
     template_name = 'selling_detail.html' 
-    login_url = 'login' 
+    login_url = 'login'
 
 def selling_create(request):
     template_name = 'selling_new.html'
