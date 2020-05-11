@@ -23,7 +23,7 @@ class SellingImage(models.Model):
     selling = models.ForeignKey(
         Selling, 
         on_delete=models.CASCADE,
-        related_name='asset_images', 
+        related_name='asset_images',
     )
     image_name = models.CharField(max_length=255, default='')
     image = models.ImageField(upload_to='asset_image', null=True , blank=True, default='')

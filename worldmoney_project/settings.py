@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'crispy_forms', # new 
 
     # Local
-    'users.apps.UsersConfig', 
+    'users.apps.UsersConfig',
+    # 'member.apps.MemberConfig', 
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig', 
     'selling.apps.SellingConfig', # new
@@ -85,8 +86,12 @@ WSGI_APPLICATION = 'worldmoney_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'world_estate',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

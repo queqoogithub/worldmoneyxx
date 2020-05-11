@@ -6,9 +6,18 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm): 
     class Meta(UserCreationForm.Meta):
          model = CustomUser 
-         fields = ('username', 'email', 'age',) # new 
+         fields = ('nametitle', 'first_name', 'last_name', 'username', 'email', 'tel', 'idcard') # new
+         widgets = {
+            # 'birthday': forms.TextInput(attrs={
+            #     'type': 'date',
+            #     'class': 'form-control',
+            #     'placeholder': 'BirthDay',
+            #     }
+            # ),
 
+           
+        }
 class CustomUserChangeForm(UserChangeForm): 
     class Meta: 
          model = CustomUser 
-         fields = ('username', 'email', 'age',) # new 
+         fields = ('username', 'email',) # new

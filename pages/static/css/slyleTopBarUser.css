@@ -4,11 +4,10 @@
         box-sizing: border-box;
     }
     
-    /* .container {
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-    } */
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
     
     .container-grid {
         display: grid;
@@ -22,7 +21,8 @@
         font-size: 28px;
         font-family: "system";
         margin: 10px 15px;
-        padding: 0px 25;
+        /* padding: 0px 0px; */
+        padding-right: 180px;
         box-sizing: border-box;
         display: grid;
         grid-template-columns: 40px 1fr;
@@ -143,7 +143,7 @@ input[type=password]:focus {
         transition: .3s ease;
         color: #ffffff;
         font-weight: bolder;
-        font-size: 7px;
+        font-size: 2px;
     }
     
     #A-TopBar2:hover {
