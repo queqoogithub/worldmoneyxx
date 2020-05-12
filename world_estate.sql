@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 07:30 AM
+-- Generation Time: May 12, 2020 at 11:36 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -100,38 +100,42 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (22, 'Can change article', 6, 'change_article'),
 (23, 'Can delete article', 6, 'delete_article'),
 (24, 'Can view article', 6, 'view_article'),
-(25, 'Can add selling', 7, 'add_selling'),
-(26, 'Can change selling', 7, 'change_selling'),
-(27, 'Can delete selling', 7, 'delete_selling'),
-(28, 'Can view selling', 7, 'view_selling'),
-(29, 'Can add selling image', 8, 'add_sellingimage'),
-(30, 'Can change selling image', 8, 'change_sellingimage'),
-(31, 'Can delete selling image', 8, 'delete_sellingimage'),
-(32, 'Can view selling image', 8, 'view_sellingimage'),
+(25, 'Can add chek', 7, 'add_chek'),
+(26, 'Can change chek', 7, 'change_chek'),
+(27, 'Can delete chek', 7, 'delete_chek'),
+(28, 'Can view chek', 7, 'view_chek'),
+(29, 'Can add selling', 8, 'add_selling'),
+(30, 'Can change selling', 8, 'change_selling'),
+(31, 'Can delete selling', 8, 'delete_selling'),
+(32, 'Can view selling', 8, 'view_selling'),
 (33, 'Can add selling auction', 9, 'add_sellingauction'),
 (34, 'Can change selling auction', 9, 'change_sellingauction'),
 (35, 'Can delete selling auction', 9, 'delete_sellingauction'),
 (36, 'Can view selling auction', 9, 'view_sellingauction'),
-(37, 'Can add log entry', 10, 'add_logentry'),
-(38, 'Can change log entry', 10, 'change_logentry'),
-(39, 'Can delete log entry', 10, 'delete_logentry'),
-(40, 'Can view log entry', 10, 'view_logentry'),
-(41, 'Can add permission', 11, 'add_permission'),
-(42, 'Can change permission', 11, 'change_permission'),
-(43, 'Can delete permission', 11, 'delete_permission'),
-(44, 'Can view permission', 11, 'view_permission'),
-(45, 'Can add group', 12, 'add_group'),
-(46, 'Can change group', 12, 'change_group'),
-(47, 'Can delete group', 12, 'delete_group'),
-(48, 'Can view group', 12, 'view_group'),
-(49, 'Can add content type', 13, 'add_contenttype'),
-(50, 'Can change content type', 13, 'change_contenttype'),
-(51, 'Can delete content type', 13, 'delete_contenttype'),
-(52, 'Can view content type', 13, 'view_contenttype'),
-(53, 'Can add session', 14, 'add_session'),
-(54, 'Can change session', 14, 'change_session'),
-(55, 'Can delete session', 14, 'delete_session'),
-(56, 'Can view session', 14, 'view_session');
+(37, 'Can add selling image', 10, 'add_sellingimage'),
+(38, 'Can change selling image', 10, 'change_sellingimage'),
+(39, 'Can delete selling image', 10, 'delete_sellingimage'),
+(40, 'Can view selling image', 10, 'view_sellingimage'),
+(41, 'Can add log entry', 11, 'add_logentry'),
+(42, 'Can change log entry', 11, 'change_logentry'),
+(43, 'Can delete log entry', 11, 'delete_logentry'),
+(44, 'Can view log entry', 11, 'view_logentry'),
+(45, 'Can add permission', 12, 'add_permission'),
+(46, 'Can change permission', 12, 'change_permission'),
+(47, 'Can delete permission', 12, 'delete_permission'),
+(48, 'Can view permission', 12, 'view_permission'),
+(49, 'Can add group', 13, 'add_group'),
+(50, 'Can change group', 13, 'change_group'),
+(51, 'Can delete group', 13, 'delete_group'),
+(52, 'Can view group', 13, 'view_group'),
+(53, 'Can add content type', 14, 'add_contenttype'),
+(54, 'Can change content type', 14, 'change_contenttype'),
+(55, 'Can delete content type', 14, 'delete_contenttype'),
+(56, 'Can view content type', 14, 'view_contenttype'),
+(57, 'Can add session', 15, 'add_session'),
+(58, 'Can change session', 15, 'change_session'),
+(59, 'Can delete session', 15, 'delete_session'),
+(60, 'Can view session', 15, 'view_session');
 
 -- --------------------------------------------------------
 
@@ -167,15 +171,16 @@ CREATE TABLE `django_content_type` (
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
-(10, 'admin', 'logentry'),
+(11, 'admin', 'logentry'),
 (6, 'articles', 'article'),
-(12, 'auth', 'group'),
-(11, 'auth', 'permission'),
-(13, 'contenttypes', 'contenttype'),
-(7, 'selling', 'selling'),
+(13, 'auth', 'group'),
+(12, 'auth', 'permission'),
+(14, 'contenttypes', 'contenttype'),
+(7, 'selling', 'chek'),
+(8, 'selling', 'selling'),
 (9, 'selling', 'sellingauction'),
-(8, 'selling', 'sellingimage'),
-(14, 'sessions', 'session'),
+(10, 'selling', 'sellingimage'),
+(15, 'sessions', 'session'),
 (1, 'users', 'amphures'),
 (5, 'users', 'customuser'),
 (2, 'users', 'districts'),
@@ -200,29 +205,28 @@ CREATE TABLE `django_migrations` (
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2020-05-08 08:45:36.185629'),
-(2, 'contenttypes', '0002_remove_content_type_name', '2020-05-08 08:45:36.272510'),
-(3, 'auth', '0001_initial', '2020-05-08 08:45:36.351127'),
-(4, 'auth', '0002_alter_permission_name_max_length', '2020-05-08 08:45:36.611052'),
-(5, 'auth', '0003_alter_user_email_max_length', '2020-05-08 08:45:36.621078'),
-(6, 'auth', '0004_alter_user_username_opts', '2020-05-08 08:45:36.630457'),
-(7, 'auth', '0005_alter_user_last_login_null', '2020-05-08 08:45:36.636472'),
-(8, 'auth', '0006_require_contenttypes_0002', '2020-05-08 08:45:36.638481'),
-(9, 'auth', '0007_alter_validators_add_error_messages', '2020-05-08 08:45:36.644521'),
-(10, 'auth', '0008_alter_user_username_max_length', '2020-05-08 08:45:36.651539'),
-(11, 'auth', '0009_alter_user_last_name_max_length', '2020-05-08 08:45:36.656553'),
-(12, 'auth', '0010_alter_group_name_max_length', '2020-05-08 08:45:36.669674'),
-(13, 'auth', '0011_update_proxy_permissions', '2020-05-08 08:45:36.677705'),
-(14, 'users', '0001_initial', '2020-05-08 08:45:36.864138'),
-(15, 'admin', '0001_initial', '2020-05-08 08:45:37.157334'),
-(16, 'admin', '0002_logentry_remove_auto_add', '2020-05-08 08:45:37.309075'),
-(17, 'admin', '0003_logentry_add_action_flag_choices', '2020-05-08 08:45:37.317096'),
-(18, 'articles', '0001_initial', '2020-05-08 08:45:37.348180'),
-(19, 'selling', '0001_initial', '2020-05-08 08:45:37.465393'),
-(20, 'selling', '0002_selling_date', '2020-05-08 08:45:37.695030'),
-(21, 'selling', '0003_auto_20200407_1644', '2020-05-08 08:45:37.864274'),
-(22, 'selling', '0004_auto_20200507_1352', '2020-05-08 08:45:37.959479'),
-(23, 'sessions', '0001_initial', '2020-05-08 08:45:37.987552');
+(1, 'contenttypes', '0001_initial', '2020-05-12 08:26:25.195567'),
+(2, 'contenttypes', '0002_remove_content_type_name', '2020-05-12 08:26:25.311138'),
+(3, 'auth', '0001_initial', '2020-05-12 08:26:25.410430'),
+(4, 'auth', '0002_alter_permission_name_max_length', '2020-05-12 08:26:25.744272'),
+(5, 'auth', '0003_alter_user_email_max_length', '2020-05-12 08:26:25.750295'),
+(6, 'auth', '0004_alter_user_username_opts', '2020-05-12 08:26:25.755309'),
+(7, 'auth', '0005_alter_user_last_login_null', '2020-05-12 08:26:25.762326'),
+(8, 'auth', '0006_require_contenttypes_0002', '2020-05-12 08:26:25.765343'),
+(9, 'auth', '0007_alter_validators_add_error_messages', '2020-05-12 08:26:25.770347'),
+(10, 'auth', '0008_alter_user_username_max_length', '2020-05-12 08:26:25.776362'),
+(11, 'auth', '0009_alter_user_last_name_max_length', '2020-05-12 08:26:25.782406'),
+(12, 'auth', '0010_alter_group_name_max_length', '2020-05-12 08:26:25.796416'),
+(13, 'auth', '0011_update_proxy_permissions', '2020-05-12 08:26:25.804465'),
+(14, 'users', '0001_initial', '2020-05-12 08:26:25.999757'),
+(15, 'admin', '0001_initial', '2020-05-12 08:26:26.318584'),
+(16, 'admin', '0002_logentry_remove_auto_add', '2020-05-12 08:26:26.442915'),
+(17, 'admin', '0003_logentry_add_action_flag_choices', '2020-05-12 08:26:26.453945'),
+(18, 'articles', '0001_initial', '2020-05-12 08:26:26.525136'),
+(19, 'selling', '0001_initial', '2020-05-12 08:26:26.712184'),
+(20, 'selling', '0002_auto_20200512_1526', '2020-05-12 08:26:26.989691'),
+(21, 'sessions', '0001_initial', '2020-05-12 08:26:27.021775'),
+(22, 'selling', '0003_auto_20200512_1606', '2020-05-12 09:07:05.154926');
 
 -- --------------------------------------------------------
 
@@ -236,6 +240,24 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `django_session`
+--
+
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('ed9kstn0ep20ed8gj11triy52en8g34a', 'MjkyMGE1ZmY3ZjE0MmQ2MjgwOGEzNGNmMTkwY2ExMmFjYTk4NTU2MTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ODA1NDUzNDNlNTk4MDYwMjY0MDk2ZDU4Mzc5ODI1MGJkM2NkOTBkIn0=', '2020-05-26 08:56:03.714358');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `selling_chek`
+--
+
+CREATE TABLE `selling_chek` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -245,19 +267,21 @@ CREATE TABLE `django_session` (
 CREATE TABLE `selling_selling` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `body` longtext NOT NULL,
-  `author_id` int(11) DEFAULT NULL,
-  `date` datetime(6) NOT NULL,
   `seller` varchar(255) NOT NULL,
-  `selling_price` decimal(10,2) NOT NULL
+  `body` longtext NOT NULL,
+  `selling_price` decimal(10,2) NOT NULL,
+  `date` datetime(6) NOT NULL,
+  `duedate` datetime(6) DEFAULT NULL,
+  `author_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `selling_selling`
 --
 
-INSERT INTO `selling_selling` (`id`, `title`, `body`, `author_id`, `date`, `seller`, `selling_price`) VALUES
-(1, 'test1', 'aasd', NULL, '2020-05-08 09:22:48.655472', 'asdas', '5000.00');
+INSERT INTO `selling_selling` (`id`, `title`, `seller`, `body`, `selling_price`, `date`, `duedate`, `author_id`) VALUES
+(1, 'test1', '123123', 'aasd', '123123.00', '2020-05-12 08:38:23.624504', '2020-05-13 00:00:00.000000', NULL),
+(2, 'test2', '123123', 'aasd', '1231.00', '2020-05-12 08:38:23.624504', '2020-05-12 00:00:00.000000', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,8 +303,8 @@ CREATE TABLE `selling_sellingauction` (
 --
 
 INSERT INTO `selling_sellingauction` (`id`, `auctioner`, `auction_price`, `date`, `author_id`, `selling_id`) VALUES
-(1, '', '5000.00', '2020-05-08 09:22:48.656474', 2, 1),
-(2, '', '6000.00', '2020-05-11 01:44:25.436971', 1, 1);
+(1, '', '1000.00', '2020-05-12 08:38:23.624504', 1, 2),
+(2, '', '5000.00', '2020-05-12 09:08:08.550656', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -300,7 +324,8 @@ CREATE TABLE `selling_sellingimage` (
 --
 
 INSERT INTO `selling_sellingimage` (`id`, `image_name`, `image`, `selling_id`) VALUES
-(1, '', 'asset_image/TRK2700R-4.jpg', 1);
+(1, '', '', 1),
+(2, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -328,13 +353,13 @@ CREATE TABLE `users_customuser` (
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
   `username` varchar(150) NOT NULL,
-  `nametitle` varchar(15) NOT NULL,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(150) NOT NULL,
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL,
+  `nametitle` varchar(15) NOT NULL,
   `tel` varchar(10) DEFAULT NULL,
   `idcard` varchar(13) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -343,9 +368,12 @@ CREATE TABLE `users_customuser` (
 -- Dumping data for table `users_customuser`
 --
 
-INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `nametitle`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `tel`, `idcard`) VALUES
-(1, 'pbkdf2_sha256$180000$WgumLsNYwJRu$kBDimCTxBNIb9YIw8npXPK03Kg4QAllOlzQA52TEOBI=', '2020-05-11 04:19:14.837597', 1, 'oat', '', '', '', '', 1, 1, '2020-05-08 08:46:06.820790', NULL, NULL),
-(2, 'pbkdf2_sha256$180000$4yD3W2x6XyRP$YxXt5io4fXU6GejL/rdTKSOap7J4agBTDdYypCD+6Mk=', '2020-05-08 09:23:29.411719', 1, 'admin', 'Mr', 'Apisit', 'Sripa', 'oat_asdfgh@hotmail.co.th', 1, 1, '2020-05-08 08:47:17.991626', '0909214023', '1309902530082');
+INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `nametitle`, `tel`, `idcard`) VALUES
+(1, 'pbkdf2_sha256$180000$fjBbW3frgceF$gtjUc8QCYi5wONof4qeLYYTX2M32vKGeyN7dDIPZyJ0=', '2020-05-12 08:56:03.711322', 1, 'oat', '', '', '', 1, 1, '2020-05-12 08:26:42.690847', '', NULL, NULL),
+(2, 'pbkdf2_sha256$180000$rxJcUlTubIVZ$/7ZsUVhrNaDvutDsVZqQlh2e62cAPyh3YpPghAFxxkc=', NULL, 0, 'user', 'อภิสิทธิ์', 'ศรีภา', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:42:41.913736', 'Mr', '0909214023', '1309902530082'),
+(3, 'pbkdf2_sha256$180000$iJtTXbyjuuji$zE82EzGRwcW8DK2MYNvlqP/iK6imVRqVT/dYDuVSAYM=', NULL, 0, 'users1', 'Apisit', 'Sripa', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:44:21.261056', 'Ms', '0921402351', '121215456321'),
+(4, 'pbkdf2_sha256$180000$IWERvI4RLMCH$bZdqbSP/xYUtij7lrGIYLMxMq0qKnxkxS8SoXGLmAaY=', NULL, 0, 'oat132', 'Apisit', 'Sripa', 'oat19122@gmail.com', 0, 1, '2020-05-12 08:48:32.021155', 'Dr', '0909214045', '1212154563245'),
+(5, 'pbkdf2_sha256$180000$173ajKHLb1g5$aC27vUA33wb3Qxkx5uFxJWYFLSIIa/3uMiY4HOiXiVw=', NULL, 0, 'c111', 'อภิสิทธิ์', 'ศรีภา', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:52:16.611709', 'Mr', '0120214120', '1112121241213');
 
 -- --------------------------------------------------------
 
@@ -472,6 +500,12 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
+-- Indexes for table `selling_chek`
+--
+ALTER TABLE `selling_chek`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `selling_selling`
 --
 ALTER TABLE `selling_selling`
@@ -483,8 +517,8 @@ ALTER TABLE `selling_selling`
 --
 ALTER TABLE `selling_sellingauction`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `selling_sellingauction_selling_id_4568edf7_fk_selling_selling_id` (`selling_id`),
-  ADD KEY `selling_sellingauction_author_id_d760d2bb_fk_users_customuser_id` (`author_id`);
+  ADD KEY `selling_sellingauction_author_id_d760d2bb_fk_users_customuser_id` (`author_id`),
+  ADD KEY `selling_sellingauction_selling_id_4568edf7_fk_selling_selling_id` (`selling_id`);
 
 --
 -- Indexes for table `selling_sellingimage`
@@ -568,7 +602,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -580,19 +614,25 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `selling_chek`
+--
+ALTER TABLE `selling_chek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `selling_selling`
 --
 ALTER TABLE `selling_selling`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `selling_sellingauction`
@@ -604,7 +644,7 @@ ALTER TABLE `selling_sellingauction`
 -- AUTO_INCREMENT for table `selling_sellingimage`
 --
 ALTER TABLE `selling_sellingimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users_amphures`
@@ -616,7 +656,7 @@ ALTER TABLE `users_amphures`
 -- AUTO_INCREMENT for table `users_customuser`
 --
 ALTER TABLE `users_customuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users_customuser_groups`

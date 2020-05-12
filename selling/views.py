@@ -6,7 +6,8 @@ from django.views import generic
 from django.shortcuts import get_object_or_404 # new
 
 from .forms import SellingForm, SellingImageFormset, SellingAuctionForm # new
-from .models import Selling, SellingImage, SellingAuction # new
+from .models import Selling, SellingImage, SellingAuction, chek # new
+from django.http import HttpResponse
 
 # Create your views here.
 class SellingListView(ListView): 
@@ -19,6 +20,8 @@ class SellingDetailView(DetailView):
     model = Selling
     template_name = 'selling_detail.html' 
     login_url = 'login'
+
+
 
 def selling_create(request):
     template_name = 'selling_new.html'
@@ -76,7 +79,8 @@ def selling_auction_create(request, pk): # new
         return render(request, template_name, context)
     
     else:
-        return redirect('/') 
+        return redirect('/')
+
 
 
 

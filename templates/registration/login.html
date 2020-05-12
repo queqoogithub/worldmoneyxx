@@ -1,9 +1,9 @@
 {% load static %}
-<div class="container-grid" id="navbar">
+<div class="container-grid">
 
     <div class="logo">
 
-        <!-- <img src="{% static 'img/logo.png' %} " id="image_logo" width="40px" height="40px"> -->
+        <img src="{% static 'img/logo.png' %} " id="image_logo" width="40px" height="40px">
 
         <a href="#" id="logo_item">
 
@@ -26,83 +26,47 @@
 
     <div class="user-topBar">
 
+
+
         <ul>
             <div class="A-TopBar">
 
                 {% if user.is_authenticated %}
+                <p>{{ user.username }}</p>
+                <li>
+                    <button id="A-TopBar2">
 
-                <div class="dropdown">
-                    <button class="dropbtn">
-
-                        {{ user.username }}
+                       <a href="{% url 'password_change'%}">Change password</a> 
 
                     </button>
-
-                    <div class="dropdown-content">
-                        <a href="#" style="text-decoration: none;">
-
-                            My profile
-
-                        </a>
-
-                        <a href="{% url 'password_change'%}" style="text-decoration: none;">
-
-                            Change password
-
-                        </a>
-
-                        <a href="#" style="text-decoration: none;">
-
-                            Link 3
-                        </a>
-
-                    </div>
-                </div>
-
+                </li> 
                 <li>
-                    <a href="{% url 'logout' %}" id="A-TopBar1">
-
-                        <span>
-
-                            Logout
-
-                        </span>
-                    </a>
+                    <button id="A-TopBar3">
+                       <a href="{% url 'logout' %}">Logout</a> 
+                    </button>
                 </li>
 
-
                 {% else %}
+
+                
 
                 <form action="/users/login/" method="post">
                     {% csrf_token %}
                     <div class="UserAndPass">
-
                         <li>
                             <input type="text" name="username" placeholder="Username">
                         </li>
-
-                        <li>
-                            <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password">
                         </li>
-
-                        <li>
-                            <input type="submit" id="A-TopBar1" value=" LOG IN">
-                        </li>
-
                     </div>
-
+                    <li>
+                        <input type="submit" id="A-TopBar1" value=" LOG IN">
                 </form>
-
-                <li>
-                    <!-- <button id="A-TopBar2"> -->
-                    <a href="{% url 'password_reset'%}" id="A-TopBar2">
-                        <span>
-
-                            Reset password
-
-                        </span>
-                    </a>
-                    <!-- </button> -->
+                </li>
+               <li>
+                    <button id="A-TopBar2">
+                       <a href="{% url 'password_reset'%}">Reset password</a> 
+                    </button>
                 </li>
 
                 <li>
@@ -125,10 +89,7 @@
 
 </div>
 
-<div class="BrTopBarAndMenu">
-
 </div>
-
 
 <div class="MenuAndContant">
     <div class="MenuAndContant-grid">
@@ -157,7 +118,7 @@
                 </div>
 
                 <div>
-                    <a href="#" id="Menu_Left-item">
+                    <a href="{% url 'selling_list' %}" id="Menu_Left-item">
                         <span>
 
                             SELLER
@@ -194,20 +155,3 @@
             </div>
 
         </div>
-
-        <script>
-            window.onscroll = function() {
-                myFunction()
-            };
-
-            var navbar = document.getElementById("navbar");
-            var sticky = navbar.offsetTop;
-
-            function myFunction() {
-                if (window.pageYOffset >= sticky) {
-                    navbar.classList.add("sticky")
-                } else {
-                    navbar.classList.remove("sticky");
-                }
-            }
-        </script>

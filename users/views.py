@@ -10,7 +10,7 @@ from django.contrib import messages
 # Create your views here.
 class SignUpView(CreateView): 
     form_class = CustomUserCreationForm 
-    success_url = reverse_lazy('login') 
+    success_url = reverse_lazy('home') 
     template_name = 'signup.html'
 
 def login(request):

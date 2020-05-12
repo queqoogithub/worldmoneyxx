@@ -12,7 +12,7 @@
     .container-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 30px;
+        grid-gap: 300px;
         background-color: #efefefff;
         border-bottom: 3px solid #f1c232ff;
     }
@@ -24,8 +24,8 @@
         /* padding: 0px 0px; */
         padding-right: 180px;
         box-sizing: border-box;
-        /* display: grid;
-        grid-template-columns: 40px 1fr 1fr; */
+        display: grid;
+        grid-template-columns: 40px 1fr;
         /* background-color: lawngreen; */
     }
     
@@ -101,11 +101,6 @@
 input[type=password]:focus {
     background-color: #efefefff; 
 } */
-    
-    #UserName_NavBar {
-        text-align: center;
-        cursor: default;
-    }
     
     #A-TopBar1 {
         display: block;
@@ -190,71 +185,6 @@ input[type=password]:focus {
     
     .UserAndPass {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         margin: auto;
-    }
-    /* -------------- UserName_dropdown in NavBar ----------------- */
-    
-    .dropbtn {
-        display: block;
-        /* background-color: #4CAF50; */
-        color: black;
-        margin: 2px auto;
-        padding: 5px 10px;
-        font-size: 13px;
-        border: 2px solid #d9d9d9;
-        /* border-radius: 10px; */
-        font-family: "system";
-    }
-    
-    .dropdown {
-        position: relative;
-        display: inline-block;
-        /* border-radius: 10px; */
-    }
-    
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 120px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    
-    .dropdown-content a {
-        font-family: "system";
-    }
-    
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-    
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
-    .dropdown:hover .dropbtn {
-        background-color: #f1f1f1;
-    }
-    
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-    
-    .sticky+.content {
-        padding-top: 12px;
-    }
-    
-    .sticky+.MenuLeftNavbar {
-        margin-bottom: 50px;
     }

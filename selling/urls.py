@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:pk>/detail/', SellingDetailView.as_view(), name='selling_detail'), 
     path('<int:pk>/auction/', selling_auction_create, name='selling_auction_create'), # new
     path('', SellingListView.as_view(), name='selling_list'), 
+    # path('time/', jaya, name='time'), 
 ]

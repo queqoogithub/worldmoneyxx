@@ -1,42 +1,150 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block content %}
+
+<style>
+    h1 {
+        color: #396;
+        font-weight: 100;
+        font-size: 40px;
+        margin: 40px 0px 20px;
+    }
+
+    #clockdiv {
+        font-family: sans-serif;
+        color: #fff;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #clockdiv>div {
+        padding: 10px;
+        border-radius: 3px;
+        background: #00BF96;
+        display: inline-block;
+    }
+
+    #clockdiv div>span {
+        padding: 15px;
+        border-radius: 3px;
+        background: #00816A;
+        display: inline-block;
+    }
+
+    smalltext {
+        padding-top: 5px;
+        font-size: 16px;
+    }
+</style>
+
 <h3 class="font-weight-bold">{{ selling.title }}</h3>
 <p>{{ selling.date }}</p><br>
 
 <div class="row">
-    
-    {% for img in selling.asset_images.all %} 
+
+    {% for img in selling.asset_images.all %}
     <div class="col s6 m6 l3 " align="center">
-        
-        
+
+
         <a href="/media/{{ img.image }}" target="_blank">
-        <img class="responsive-img " src="/media/{{ img.image }}" width="320" height="230" alt="image not found" vspace="2px"/>
+            <img class="responsive-img " src="/media/{{ img.image }}" width="320" height="230" alt="image not found"
+                vspace="2px" />
         </a>
-              
-        
-    </div>         
+
+
+    </div>
     {% endfor %}
 </div>
+
+<center>
+    <h1>Auction closing date</h1>
+    <p>
+    <div id="clockdiv">
+        <div>
+            <span class="days" id="day"></span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours" id="hour"></span>
+            <div class="smalltext">Hours</div>
+        </div>
+        <div>
+            <span class="minutes" id="minute"></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds" id="second"></span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+    </p>
+</center>
+
 <br>
 <h4>About The Asset</h4>
 <p>{{ selling.body }}</p>
 <br>
-        {% if user.is_authenticated %}
-            <a href="{% url 'selling_auction_create' selling.pk %}" class="btn btn-danger" style="font-size:22px"><i class="fa fa-legal" style="font-size:22px"></i> &nbsp;Asset Auction</a>
-        {% else %}
-            <p style="color:red"> กรุณา Login ก่อนประมูล!!</p>
-        {% endif %}
+{% if user.is_authenticated %}
+    {% if selling.duedate|date:"U" <= selling.today|date:"U" %}
+        <p  style="color:red">Time Out</p>
+        <p>The Winner is {{ selling.asset_auctions.all.0.author }} : {{ selling.asset_auctions.all.0.auction_price }}</p>
+    {% else %}
+    <a href="{% url 'selling_auction_create' selling.pk %}" class="btn btn-danger" style="font-size:22px"><i class="fa fa-legal" style="font-size:22px"></i> &nbsp;Asset Auction</a>
+    {% endif %}
+{% else %}
+    <p style="color:red"> กรุณา Login ก่อนประมูล!!</p>
+{% endif %}
 
 <br><br><br>
 <h4>Auction List</h4><br>
 <div class="row"></div>
-    {% for auction in selling.asset_auctions.all %}
-    <ul class="list-group">
-        <li class="list-group-item">Bidding Price : <b>{{ auction.auction_price }}</b> THB &nbsp; | &nbsp; Bidder : <b>{{ auction.author }}</b> </li>
-    </ul> 
-    {% endfor %}
+{% for auction in selling.asset_auctions.all %}
+<ul class="list-group">
+    <li class="list-group-item">Bidding Price : <b>{{ auction.auction_price }}</b> THB &nbsp; | &nbsp; Bidder :
+        <b>{{ auction.author }}</b>&nbsp;</li>
+</ul>
+{% endfor %}
+
 </div>
 
 <br><br><br><br>
+
+
+
+<script>
+    var deadline = new Date({{ selling.duedate | date:"U"}} * 1000);
+    deadline = (Date.parse(deadline) / 1000);
+
+    var x = setInterval(function () {
+
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+
+        var t = deadline - now;
+
+        var days = Math.floor(t / 86400);
+        var hours = Math.floor((t - (days * 86400)) / 3600);
+        var minutes = Math.floor((t - (days * 86400) - (hours * 3600)) / 60);
+        var seconds = Math.floor((t - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+        document.getElementById("day").innerHTML = days;
+        document.getElementById("hour").innerHTML = hours;
+        document.getElementById("minute").innerHTML = minutes;
+        document.getElementById("second").innerHTML = seconds;
+
+        if (t < 0) {
+            clearInterval(x);
+            document.getElementById("day").innerHTML = "0";
+            document.getElementById("hour").innerHTML = "0";
+            document.getElementById("minute").innerHTML = "0";
+            document.getElementById("second").innerHTML = "0";
+        }
+
+
+
+    }, 1000);
+</script>
+
 {% endblock %}

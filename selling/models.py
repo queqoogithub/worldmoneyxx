@@ -9,6 +9,8 @@ class Selling(models.Model):
     body = models.TextField(default='')
     selling_price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     date = models.DateTimeField(default=datetime.now())
+    duedate = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+    today = datetime.now()
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
@@ -46,7 +48,8 @@ class SellingAuction(models.Model): # new
     class Meta:
         ordering = ['-auction_price'] # to order the QuerySet.
 
-    
+class chek(models.Model):
+    date = models.DateField(auto_now_add=False, blank=True, null=True)
 
 
 
