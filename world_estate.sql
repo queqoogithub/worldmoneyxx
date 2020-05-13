@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 08:09 AM
+-- Generation Time: May 13, 2020 at 09:35 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -274,7 +274,9 @@ CREATE TABLE `selling_selling` (
 
 INSERT INTO `selling_selling` (`id`, `title`, `seller`, `body`, `selling_price`, `date`, `duedate`, `author_id`) VALUES
 (1, 'test1', '123123', 'aasd', '123123.00', '2020-05-12 08:38:23.624504', '2020-05-13 00:00:00.000000', NULL),
-(2, 'test2', '123123', 'aasd', '1231.00', '2020-05-12 08:38:23.624504', '2020-05-14 00:00:00.000000', NULL);
+(2, 'test2', '123123', 'aasd', '1231.00', '2020-05-12 08:38:23.624504', '2020-05-14 00:00:00.000000', NULL),
+(3, 'tset3', '123', 'aasd', '5000000.00', '2020-05-12 08:38:23.624504', '2020-05-14 00:00:00.000000', NULL),
+(4, 'test4', '123', 'aasd', '1523000.00', '2020-05-12 08:38:23.624504', '2020-05-14 00:00:00.000000', NULL);
 
 -- --------------------------------------------------------
 
@@ -317,8 +319,10 @@ CREATE TABLE `selling_sellingimage` (
 --
 
 INSERT INTO `selling_sellingimage` (`id`, `image_name`, `image`, `selling_id`) VALUES
-(1, '', '', 1),
-(2, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2);
+(1, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 1),
+(2, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2),
+(3, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 3),
+(4, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -363,7 +367,7 @@ CREATE TABLE `users_customuser` (
 
 INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `nametitle`, `tel`, `idcard`) VALUES
 (1, 'pbkdf2_sha256$180000$OQzeiS0N4CC6$HhssJgMVaG0eYGpMCV7BAh27d4IzQ/jEICM3ThquBtA=', '2020-05-13 02:23:58.197826', 1, 'oat', '', '', 'oat19122@gmail.com', 1, 1, '2020-05-12 08:26:42.690847', '', NULL, NULL),
-(19, 'pbkdf2_sha256$180000$i1Zd2DkLnHdz$KlVX9Sgh//zJactFvzxolSkaqSfC6kFD2tX6QFZzsQs=', '2020-05-13 05:45:22.721850', 0, 'c111', 'Apisit', 'Sripa', 'std59010912674@acc.msu.ac.th', 0, 1, '2020-05-13 05:05:42.920304', 'Mr', '0909214023', '12');
+(19, 'pbkdf2_sha256$180000$i1Zd2DkLnHdz$KlVX9Sgh//zJactFvzxolSkaqSfC6kFD2tX6QFZzsQs=', '2020-05-13 06:26:44.373664', 0, 'c111', 'Apisit', 'Sripa', 'std59010912674@acc.msu.ac.th', 0, 1, '2020-05-13 05:05:42.920304', 'Mr', '0909214023', '12');
 
 -- --------------------------------------------------------
 
@@ -622,7 +626,7 @@ ALTER TABLE `selling_chek`
 -- AUTO_INCREMENT for table `selling_selling`
 --
 ALTER TABLE `selling_selling`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `selling_sellingauction`
@@ -634,7 +638,7 @@ ALTER TABLE `selling_sellingauction`
 -- AUTO_INCREMENT for table `selling_sellingimage`
 --
 ALTER TABLE `selling_sellingimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users_amphures`

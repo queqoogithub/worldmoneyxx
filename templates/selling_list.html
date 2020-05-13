@@ -3,24 +3,34 @@
 {% block title %}Selling Image List{% endblock title %}
 
 {% block content %}
-<div class="row">
-    {% for selling in object_list %}
-    <div class="col s12 m6 l6 ">
 
-        <div class="card" style="width:520px">
 
-            <img class="card-img-top responsive-img " src="/media/{{ selling.asset_images.all.0.image }} "
-                style="width:100%" alt="image not found" />
-            <div class="card-body">
-                <h4 class="font-weight-bold">{{ selling.title }}</h4>
-                <p>{{ selling.date }}</p>
-                <a href="{% url 'selling_detail' selling.pk %}" class="btn btn-primary">Details</a>
+
+
+
+
+    <div class="row">
+        {% for selling in object_list %}
+        <div >
+            <div class="cardsShow">
+                <div class="card" style="width:320px">
+
+                    <img class="card-img-top responsive-img " src="/media/{{ selling.asset_images.all.0.image }} "style="width:100%" alt="image not found" />
+                    <div class="card-body">
+                        <h4 class="font-weight-bold">{{ selling.title }}</h4>
+                        <p>{{ selling.date }}</p>
+                        <a href="{% url 'selling_detail' selling.pk %}" class="btn btn-primary">Details</a>
+                    </div>
+
+                </div>
             </div>
-
+            <br />
         </div>
-
-        <br />
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
+
+
+
+
+
 {% endblock content %}
