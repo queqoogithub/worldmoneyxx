@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 09:35 AM
+-- Generation Time: May 13, 2020 at 12:08 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -240,6 +240,13 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `django_session`
+--
+
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('9e5tamjwozandn94xmi2il07h1sgvam0', 'MDI3OTNiMjI1MWM2ZGZkZmM1ZmY3NjIxZmQxMTM0NDkyYTFmN2NjNzp7Il9hdXRoX3VzZXJfaWQiOiIyMCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYTAzN2UyMGFjYjgxNDM2ZTY5YTQ2ZDY0N2Y1YmM5ZDU0OTg3ZTliZiJ9', '2020-05-27 10:06:00.064807');
+
 -- --------------------------------------------------------
 
 --
@@ -299,7 +306,9 @@ CREATE TABLE `selling_sellingauction` (
 
 INSERT INTO `selling_sellingauction` (`id`, `auctioner`, `auction_price`, `date`, `author_id`, `selling_id`) VALUES
 (1, '', '1000.00', '2020-05-12 08:38:23.624504', 1, 2),
-(2, '', '5000.00', '2020-05-12 09:08:08.550656', 1, 1);
+(2, '', '5000.00', '2020-05-12 09:08:08.550656', 1, 1),
+(3, '', '1000000.00', '2020-05-13 06:24:26.578724', 19, 2),
+(4, '', '5000000.00', '2020-05-13 10:02:56.404380', 20, 2);
 
 -- --------------------------------------------------------
 
@@ -322,7 +331,9 @@ INSERT INTO `selling_sellingimage` (`id`, `image_name`, `image`, `selling_id`) V
 (1, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 1),
 (2, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2),
 (3, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 3),
-(4, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 4);
+(4, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 4),
+(6, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2),
+(7, '', 'asset_image/E_Bike_Roadmap_hRWMI0K.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -367,7 +378,8 @@ CREATE TABLE `users_customuser` (
 
 INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `nametitle`, `tel`, `idcard`) VALUES
 (1, 'pbkdf2_sha256$180000$OQzeiS0N4CC6$HhssJgMVaG0eYGpMCV7BAh27d4IzQ/jEICM3ThquBtA=', '2020-05-13 02:23:58.197826', 1, 'oat', '', '', 'oat19122@gmail.com', 1, 1, '2020-05-12 08:26:42.690847', '', NULL, NULL),
-(19, 'pbkdf2_sha256$180000$i1Zd2DkLnHdz$KlVX9Sgh//zJactFvzxolSkaqSfC6kFD2tX6QFZzsQs=', '2020-05-13 06:26:44.373664', 0, 'c111', 'Apisit', 'Sripa', 'std59010912674@acc.msu.ac.th', 0, 1, '2020-05-13 05:05:42.920304', 'Mr', '0909214023', '12');
+(19, 'pbkdf2_sha256$180000$i1Zd2DkLnHdz$KlVX9Sgh//zJactFvzxolSkaqSfC6kFD2tX6QFZzsQs=', '2020-05-13 09:05:48.741757', 0, 'c111', 'Apisit', 'Sripa', '', 0, 1, '2020-05-13 05:05:42.920304', 'Mr', '', '12'),
+(20, 'pbkdf2_sha256$180000$b7wT83kiyEff$BZcgKvAJj1g+25dJYIzhgTKGDYU9IX1YvlQ2KVJjCLI=', '2020-05-13 10:06:00.057787', 0, 'c222', 'อภิสิทธิ์', 'ศรีภา', 'std59010912674@acc.msu.ac.th', 0, 1, '2020-05-13 10:05:30.577280', 'Mr', '0909214023', '12123');
 
 -- --------------------------------------------------------
 
@@ -632,13 +644,13 @@ ALTER TABLE `selling_selling`
 -- AUTO_INCREMENT for table `selling_sellingauction`
 --
 ALTER TABLE `selling_sellingauction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `selling_sellingimage`
 --
 ALTER TABLE `selling_sellingimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_amphures`
@@ -650,7 +662,7 @@ ALTER TABLE `users_amphures`
 -- AUTO_INCREMENT for table `users_customuser`
 --
 ALTER TABLE `users_customuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users_customuser_groups`
