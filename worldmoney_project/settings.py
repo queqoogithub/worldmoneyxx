@@ -140,7 +140,14 @@ LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # new
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # new
+
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'world.estate.teest@gmail.com'
+EMAIL_HOST_PASSWORD = 'estate1234'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 MEDIA_URL = '/media/' 

@@ -8,16 +8,14 @@ class CustomUserCreationForm(UserCreationForm):
          model = CustomUser 
          fields = ('nametitle', 'first_name', 'last_name', 'username', 'email', 'tel', 'idcard') # new
          widgets = {
-            # 'birthday': forms.TextInput(attrs={
-            #     'type': 'date',
-            #     'class': 'form-control',
-            #     'placeholder': 'BirthDay',
-            #     }
-            # ),
+            'email': forms.TextInput(attrs={
+                'name': 'emailtext',
+                }
+            ),
 
            
         }
-class CustomUserChangeForm(UserChangeForm): 
+class CustomUserChangeForm(UserChangeForm):
     class Meta: 
          model = CustomUser 
          fields = ('username', 'email',) # new

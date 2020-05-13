@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 11:36 AM
+-- Generation Time: May 13, 2020 at 08:09 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -240,13 +240,6 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `django_session`
---
-
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('ed9kstn0ep20ed8gj11triy52en8g34a', 'MjkyMGE1ZmY3ZjE0MmQ2MjgwOGEzNGNmMTkwY2ExMmFjYTk4NTU2MTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ODA1NDUzNDNlNTk4MDYwMjY0MDk2ZDU4Mzc5ODI1MGJkM2NkOTBkIn0=', '2020-05-26 08:56:03.714358');
-
 -- --------------------------------------------------------
 
 --
@@ -281,7 +274,7 @@ CREATE TABLE `selling_selling` (
 
 INSERT INTO `selling_selling` (`id`, `title`, `seller`, `body`, `selling_price`, `date`, `duedate`, `author_id`) VALUES
 (1, 'test1', '123123', 'aasd', '123123.00', '2020-05-12 08:38:23.624504', '2020-05-13 00:00:00.000000', NULL),
-(2, 'test2', '123123', 'aasd', '1231.00', '2020-05-12 08:38:23.624504', '2020-05-12 00:00:00.000000', NULL);
+(2, 'test2', '123123', 'aasd', '1231.00', '2020-05-12 08:38:23.624504', '2020-05-14 00:00:00.000000', NULL);
 
 -- --------------------------------------------------------
 
@@ -369,11 +362,8 @@ CREATE TABLE `users_customuser` (
 --
 
 INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `nametitle`, `tel`, `idcard`) VALUES
-(1, 'pbkdf2_sha256$180000$fjBbW3frgceF$gtjUc8QCYi5wONof4qeLYYTX2M32vKGeyN7dDIPZyJ0=', '2020-05-12 08:56:03.711322', 1, 'oat', '', '', '', 1, 1, '2020-05-12 08:26:42.690847', '', NULL, NULL),
-(2, 'pbkdf2_sha256$180000$rxJcUlTubIVZ$/7ZsUVhrNaDvutDsVZqQlh2e62cAPyh3YpPghAFxxkc=', NULL, 0, 'user', 'อภิสิทธิ์', 'ศรีภา', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:42:41.913736', 'Mr', '0909214023', '1309902530082'),
-(3, 'pbkdf2_sha256$180000$iJtTXbyjuuji$zE82EzGRwcW8DK2MYNvlqP/iK6imVRqVT/dYDuVSAYM=', NULL, 0, 'users1', 'Apisit', 'Sripa', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:44:21.261056', 'Ms', '0921402351', '121215456321'),
-(4, 'pbkdf2_sha256$180000$IWERvI4RLMCH$bZdqbSP/xYUtij7lrGIYLMxMq0qKnxkxS8SoXGLmAaY=', NULL, 0, 'oat132', 'Apisit', 'Sripa', 'oat19122@gmail.com', 0, 1, '2020-05-12 08:48:32.021155', 'Dr', '0909214045', '1212154563245'),
-(5, 'pbkdf2_sha256$180000$173ajKHLb1g5$aC27vUA33wb3Qxkx5uFxJWYFLSIIa/3uMiY4HOiXiVw=', NULL, 0, 'c111', 'อภิสิทธิ์', 'ศรีภา', 'oat_asdfgh@hotmail.co.th', 0, 1, '2020-05-12 08:52:16.611709', 'Mr', '0120214120', '1112121241213');
+(1, 'pbkdf2_sha256$180000$OQzeiS0N4CC6$HhssJgMVaG0eYGpMCV7BAh27d4IzQ/jEICM3ThquBtA=', '2020-05-13 02:23:58.197826', 1, 'oat', '', '', 'oat19122@gmail.com', 1, 1, '2020-05-12 08:26:42.690847', '', NULL, NULL),
+(19, 'pbkdf2_sha256$180000$i1Zd2DkLnHdz$KlVX9Sgh//zJactFvzxolSkaqSfC6kFD2tX6QFZzsQs=', '2020-05-13 05:45:22.721850', 0, 'c111', 'Apisit', 'Sripa', 'std59010912674@acc.msu.ac.th', 0, 1, '2020-05-13 05:05:42.920304', 'Mr', '0909214023', '12');
 
 -- --------------------------------------------------------
 
@@ -656,7 +646,7 @@ ALTER TABLE `users_amphures`
 -- AUTO_INCREMENT for table `users_customuser`
 --
 ALTER TABLE `users_customuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users_customuser_groups`

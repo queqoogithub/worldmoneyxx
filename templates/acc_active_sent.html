@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %} <!-- วางไว้หลัง extends เสมอ หากต้องการ load file จาก static folder-->
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+ <br>
+
+ 
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please confirm!</strong> your email address to complete the registration.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+{% endblock content %}
