@@ -3,23 +3,29 @@
 {% block title %}Selling Image List{% endblock title %}
 
 {% block content %}
-
-
-
-
-
-
+<br>
     <div class="row">
         {% for selling in object_list %}
-        <div >
-            <div class="cardsShow">
-                <div class="card" style="width:320px">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card" style="width:360px">
 
                     <img class="card-img-top responsive-img " src="/media/{{ selling.asset_images.all.0.image }} "style="width:100%" alt="image not found" />
-                    <div class="card-body">
+                    <div class="card-body text-center">
+                        {% if selling.duedate|date:"U" <= selling.today|date:"U" %}
+                        <p style="color:red">Time Out</p>
                         <h4 class="font-weight-bold">{{ selling.title }}</h4>
-                        <p>{{ selling.date }}</p>
+                        <p></p>
                         <a href="{% url 'selling_detail' selling.pk %}" class="btn btn-primary">Details</a>
+                        {% else %}
+                        <p>.</p>
+                        <h4 class="font-weight-bold">{{ selling.title }}</h4>
+                        <p></p>
+                        <a href="{% url 'selling_detail' selling.pk %}" class="btn btn-primary">Details</a>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ selling.date }}
                     </div>
 
                 </div>
@@ -28,9 +34,6 @@
         </div>
         {% endfor %}
     </div>
-
-
-
-
-
 {% endblock content %}
+
+

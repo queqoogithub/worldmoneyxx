@@ -1,83 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% load humanize %}
+{% block content %} 
+<style>
+/* CSS for Carousel Asset Image */
 
-{% block content %}
+.blog .carousel-indicators {
+	  left: 0;
+	  top: auto;
+    bottom: -50px;
 
-<br>
-<div  class="alert alert-warning" role="alert"><h3 class="text-center" style="color:rgb(0, 0, 0)">{{ selling.title }} </h3></div>
-<!-- <h3 class="font-weight-bold">{{ selling.title }}</h3> -->
-<p>{{ selling.date }}</p>
+}
 
-<div class="row">
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
 
-    {% for img in selling.asset_images.all %}
-    <div class="col s6 m6 l3 " align="center">
-
-
-        <a href="/media/{{ img.image }}" target="_blank">
-            <img class="responsive-img " src="/media/{{ img.image }}" width="320" height="230" alt="image not found" vspace="2px" />
-        </a>
-
-    </div>
-    {% endfor %}
-</div>
-<hr>
-
-
-
- 
-
-<center>
-    <p>
-    <div id="clockdiv">
-        <div>
-            <span class="days" id="day"></span>
-            <div class="smalltext">Days</div>
-        </div>
-        <div>
-            <span class="hours" id="hour"></span>
-            <div class="smalltext">Hours</div>
-        </div>
-        <div>
-            <span class="minutes" id="minute"></span>
-            <div class="smalltext">Minutes</div>
-        </div>
-        <div>
-            <span class="seconds" id="second"></span>
-            <div class="smalltext">Seconds</div>
-        </div>
-    </div>
-    </p>
-</center>
-
-<br>
-<h4>About The Asset</h4>
-<p>{{ selling.body }}</p>
-<br>
-{% if user.is_authenticated %}
-{% if selling.duedate|date:"U" <= selling.today|date:"U" %}
-<p style="color:red">Time Out</p>
-<p>The Winner is {{ selling.asset_auctions.all.0.author }} : {{ selling.asset_auctions.all.0.auction_price }}</p>
-{% else %}
-<a href="{% url 'selling_auction_create' selling.pk %}" class="btn btn-danger" style="font-size:22px"><i
-        class="fa fa-legal" style="font-size:22px"></i> &nbsp;Asset Auction</a>
-{% endif %}
-{% else %}
-<p style="color:red"> กรุณา Login ก่อนประมูล!!</p>
-{% endif %}
-
-<br><br><br>
-<h4>Auction List</h4><br>
-<div class="row"></div>
-{% for auction in selling.asset_auctions.all %}
-<ul class="list-group">
-    <li class="list-group-item">Bidding Price : <b>{{ auction.auction_price }}</b> THB &nbsp; | &nbsp; Bidder :
-        <b>{{ auction.author }}</b>&nbsp;</li>
-</ul>
-{% endfor %}
-
-</div>
-
-<br><br><br><br>
+.blog .carousel-indicators .active {
+    background: #707070;
+}
+</style>
 
 <style>
     #clockdiv {
@@ -108,6 +53,7 @@
         font-size: 24px;
     }
 </style>
+
 
 <script>
     var deadline = new Date({{ selling.duedate|date:"U"}} * 1000);
@@ -143,4 +89,149 @@
     }, 1000);
 </script>
 
-{% endblock %}
+
+
+<!-- Asset Details -->
+<div class="container"><br>
+    <h3>{{ selling.title }} (Details)</h3>
+
+    {% if user.is_authenticated %}
+        {% if selling.duedate|date:"U" <= selling.today|date:"U" %}
+            
+        {% else %}
+            <div class="float-right">
+            <button type="button" class="btn btn-danger btn-lg"> <a href="{% url 'selling_auction_create' selling.pk %}">AUCTION</a></button>
+            </div>
+        {% endif %}
+    {% else %}
+    <div class="float-right">
+        <p style="color:red"> Please Login before Bid !!</p>
+      </div> 
+    {% endif %}
+
+    <p>(Date) : {{ selling.date }}</p>
+    <p><b>Detail 1 :</b> {{ selling.body }}</p>
+    <p><b>Detail n :</b> The navbar-brand class is used to highlight the brand/logo/project name of your page.</p><br>
+    
+    
+    <center>
+        {% if selling.duedate|date:"U" <= selling.today|date:"U" %}
+        <p style="color:red">Time Out</p>
+        <p><i class="fas fa-trophy"></i> The Winner is {{ selling.asset_auctions.all.0.author }} : {{ selling.asset_auctions.all.0.auction_price | intcomma }}</p>
+        {% endif %}
+
+        <p>
+        <div id="clockdiv">
+            <div>
+                <span class="days" id="day"></span>
+                <div class="smalltext">Days</div>
+            </div>
+            <div>
+                <span class="hours" id="hour"></span>
+                <div class="smalltext">Hours</div>
+            </div>
+            <div>
+                <span class="minutes" id="minute"></span>
+                <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+                <span class="seconds" id="second"></span>
+                <div class="smalltext">Seconds</div>
+            </div>
+        </div>
+        </p>
+        
+    </center>
+  
+
+  <div class="row blog">
+                <div class="col-md-12">
+                  
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    {% for img in selling.asset_images.all %}
+                                    <div class="col-md-3">
+                                        <a href="/media/{{ img.image }}">
+                                            <img src="/media/{{ img.image }}" alt="Image" width="280" height="200">
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div> -->
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
+                            <!-- <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+           
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+
+                                </div>
+                                
+                            </div> -->
+                            
+                        </div>
+                        <!--.carousel-inner-->
+            </div>
+</div><br><br>
+  
+  <!-- Auctioning Order List (Create Auction List)-->
+    <table class="table">
+    <thead class="thead-dark">
+      <tr style="text-align: center">
+        <th scope="col">#</th>
+        <th scope="col">Bidder</th>
+        <th scope="col">Auction Price</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for auction in selling.asset_auctions.all %}
+      <tr style="text-align: center">
+        <th scope="row">{{ auction.id }}</th> <!-- Set ( i++ ) in for loop -->
+        <td>{{ auction.author }}</td>
+        <td>{{ auction.auction_price | intcomma }}฿</td>
+        <td>{{ auction.date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+   </table>
+  
+{% endblock content %} 
+
+

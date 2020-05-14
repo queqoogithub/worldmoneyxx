@@ -59,6 +59,10 @@ def selling_auction_create(request, pk): # new
     template_name = 'selling_auction_new.html'
     if request.user.is_authenticated:
         selling = get_object_or_404(Selling, pk=pk)
+        if Selling.today.timestamp() >= selling.duedate.timestamp():
+            return redirect('/') 
+        else:
+            template_name = 'selling_auction_new.html'
         if request.method == 'POST':
             auction_form = SellingAuctionForm(request.POST)
             if auction_form.is_valid():
